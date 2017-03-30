@@ -1,4 +1,4 @@
-INSERT INTO `Inventeur`(`ID_Inventeur`, `Nom_Inventeur`, `Numeros_de_permis`),
+INSERT INTO `Inventeur`
 VALUES (1,'Panoramix', '8034'),
 (2,'Gandalf', '3965'),
 (3,'Elias de Kelliwic h', '2783'),
