@@ -1,0 +1,271 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Ingredient
+#------------------------------------------------------------
+
+CREATE TABLE Ingredient(
+        ID_Ingredient   int (11) Auto_increment  NOT NULL ,
+        Nom_Ingredient  Varchar (25) NOT NULL ,
+        Poids           Int NOT NULL ,
+        Prix_Ingredient Int NOT NULL ,
+        Peremption      Int NOT NULL ,
+        PRIMARY KEY (ID_Ingredient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Potion
+#------------------------------------------------------------
+
+CREATE TABLE Potion(
+        ID_Potion   int (11) Auto_increment  NOT NULL ,
+        Nom_Potion  Varchar (25) NOT NULL ,
+        Prix_Potion Int NOT NULL ,
+        Diluant     Varchar (25) NOT NULL ,
+        Temperature Int NOT NULL ,
+        Cout_Potion Int NOT NULL ,
+        PRIMARY KEY (ID_Potion )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Client
+#------------------------------------------------------------
+
+CREATE TABLE Client(
+        ID_Client     int (11) Auto_increment  NOT NULL ,
+        Nom_Client    Varchar (25) NOT NULL ,
+        Prenom_Client Varchar (25) NOT NULL ,
+        PRIMARY KEY (ID_Client )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Cmd_Fournisseur
+#------------------------------------------------------------
+
+CREATE TABLE Cmd_Fournisseur(
+        ID_CmdFournisseur int (11) Auto_increment  NOT NULL ,
+        PRIMARY KEY (ID_CmdFournisseur )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Inventeur
+#------------------------------------------------------------
+
+CREATE TABLE Inventeur(
+        ID_Inventeur      int (11) Auto_increment  NOT NULL ,
+        Nom_Inventeur     Varchar (25) NOT NULL ,
+        Numeros_de_permis Int NOT NULL ,
+        PRIMARY KEY (ID_Inventeur )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Fournisseur
+#------------------------------------------------------------
+
+CREATE TABLE Fournisseur(
+        ID_Fournisseur  int (11) Auto_increment  NOT NULL ,
+        Nom_Fournisseur Varchar (25) NOT NULL ,
+        PRIMARY KEY (ID_Fournisseur )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Stock
+#------------------------------------------------------------
+
+CREATE TABLE Stock(
+        ID_Stock            int (11) Auto_increment  NOT NULL ,
+        Quantite_Ingredient Int ,
+        Fraicheur           Int NOT NULL ,
+        PRIMARY KEY (ID_Stock )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Cmd_Client
+#------------------------------------------------------------
+
+CREATE TABLE Cmd_Client(
+        ID_CmdClient int (11) Auto_increment  NOT NULL ,
+        PRIMARY KEY (ID_CmdClient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Recipient
+#------------------------------------------------------------
+
+CREATE TABLE Recipient(
+        ID_Recipient   int (11) Auto_increment  NOT NULL ,
+        Nom_Recipient  Varchar (25) NOT NULL ,
+        Prix_Recipient Int NOT NULL ,
+        PRIMARY KEY (ID_Recipient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Onguent
+#------------------------------------------------------------
+
+CREATE TABLE Onguent(
+        ID_Onguent   int (11) Auto_increment  NOT NULL ,
+        Prix_Onguent Int NOT NULL ,
+        Nom_Onguent  Varchar (25) NOT NULL ,
+        PRIMARY KEY (ID_Onguent )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: se compose
+#------------------------------------------------------------
+
+CREATE TABLE se_compose(
+        Quantite_Ingredient Int NOT NULL ,
+        Unite               Varchar (25) NOT NULL ,
+        ID_Potion           Int NOT NULL ,
+        ID_Ingredient       Int NOT NULL ,
+        PRIMARY KEY (ID_Potion ,ID_Ingredient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: est forme de
+#------------------------------------------------------------
+
+CREATE TABLE est_forme_de(
+        Unite            Varchar (25) NOT NULL ,
+        Quantite_Onguent Int ,
+        ID_Ingredient    Int NOT NULL ,
+        ID_Onguent       Int NOT NULL ,
+        PRIMARY KEY (ID_Ingredient ,ID_Onguent )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: realise
+#------------------------------------------------------------
+
+CREATE TABLE realise(
+        ID_Fournisseur    Int NOT NULL ,
+        ID_CmdFournisseur Int NOT NULL ,
+        PRIMARY KEY (ID_Fournisseur ,ID_CmdFournisseur )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: conçu
+#------------------------------------------------------------
+
+CREATE TABLE concu(
+        ID_CmdClient Int NOT NULL ,
+        ID_Client    Int NOT NULL ,
+        PRIMARY KEY (ID_CmdClient ,ID_Client )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: possede
+#------------------------------------------------------------
+
+CREATE TABLE possede(
+        ID_Stock      Int NOT NULL ,
+        ID_Ingredient Int NOT NULL ,
+        PRIMARY KEY (ID_Stock ,ID_Ingredient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: contient
+#------------------------------------------------------------
+
+CREATE TABLE contient(
+        ID_Recipient Int NOT NULL ,
+        ID_Onguent   Int NOT NULL ,
+        ID_Potion    Int NOT NULL ,
+        PRIMARY KEY (ID_Recipient ,ID_Onguent ,ID_Potion )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: est constitue
+#------------------------------------------------------------
+
+CREATE TABLE est_constitue(
+        Quantite      Int NOT NULL ,
+        ID_CmdClient  Int NOT NULL ,
+        ID_Ingredient Int NOT NULL ,
+        ID_Onguent    Int NOT NULL ,
+        ID_Potion     Int NOT NULL ,
+        PRIMARY KEY (ID_CmdClient ,ID_Ingredient ,ID_Onguent ,ID_Potion )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: cree
+#------------------------------------------------------------
+
+CREATE TABLE cree(
+        ID_Inventeur Int NOT NULL ,
+        ID_Potion    Int NOT NULL ,
+        ID_Onguent   Int NOT NULL ,
+        PRIMARY KEY (ID_Inventeur ,ID_Potion ,ID_Onguent )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: neccesite
+#------------------------------------------------------------
+
+CREATE TABLE neccesite(
+        Fraicheur     Int NOT NULL ,
+        ID_Potion     Int NOT NULL ,
+        ID_Ingredient Int NOT NULL ,
+        ID_Onguent    Int NOT NULL ,
+        PRIMARY KEY (ID_Potion ,ID_Ingredient ,ID_Onguent )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: comprend
+#------------------------------------------------------------
+
+CREATE TABLE comprend(
+        Quantite          Int NOT NULL ,
+        ID_CmdFournisseur Int NOT NULL ,
+        ID_Ingredient     Int NOT NULL ,
+        PRIMARY KEY (ID_CmdFournisseur ,ID_Ingredient )
+)ENGINE=InnoDB;
+
+ALTER TABLE se_compose ADD CONSTRAINT FK_se_compose_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
+ALTER TABLE se_compose ADD CONSTRAINT FK_se_compose_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE est_forme_de ADD CONSTRAINT FK_est_forme_de_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE est_forme_de ADD CONSTRAINT FK_est_forme_de_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
+ALTER TABLE realise ADD CONSTRAINT FK_realise_ID_Fournisseur FOREIGN KEY (ID_Fournisseur) REFERENCES Fournisseur(ID_Fournisseur);
+ALTER TABLE realise ADD CONSTRAINT FK_realise_ID_CmdFournisseur FOREIGN KEY (ID_CmdFournisseur) REFERENCES Cmd_Fournisseur(ID_CmdFournisseur);
+ALTER TABLE concu ADD CONSTRAINT FK_concu_ID_CmdClient FOREIGN KEY (ID_CmdClient) REFERENCES Cmd_Client(ID_CmdClient);
+ALTER TABLE concu ADD CONSTRAINT FK_concu_ID_Client FOREIGN KEY (ID_Client) REFERENCES Client(ID_Client);
+ALTER TABLE possede ADD CONSTRAINT FK_possede_ID_Stock FOREIGN KEY (ID_Stock) REFERENCES Stock(ID_Stock);
+ALTER TABLE possede ADD CONSTRAINT FK_possede_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Recipient FOREIGN KEY (ID_Recipient) REFERENCES Recipient(ID_Recipient);
+ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
+ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
+ALTER TABLE est_constitue ADD CONSTRAINT FK_est_constitue_ID_CmdClient FOREIGN KEY (ID_CmdClient) REFERENCES Cmd_Client(ID_CmdClient);
+ALTER TABLE est_constitue ADD CONSTRAINT FK_est_constitue_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE est_constitue ADD CONSTRAINT FK_est_constitue_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
+ALTER TABLE est_constitue ADD CONSTRAINT FK_est_constitue_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
+ALTER TABLE cree ADD CONSTRAINT FK_cree_ID_Inventeur FOREIGN KEY (ID_Inventeur) REFERENCES Inventeur(ID_Inventeur);
+ALTER TABLE cree ADD CONSTRAINT FK_cree_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
+ALTER TABLE cree ADD CONSTRAINT FK_cree_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
+ALTER TABLE neccesite ADD CONSTRAINT FK_neccesite_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
+ALTER TABLE neccesite ADD CONSTRAINT FK_neccesite_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE neccesite ADD CONSTRAINT FK_neccesite_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
+ALTER TABLE comprend ADD CONSTRAINT FK_comprend_ID_CmdFournisseur FOREIGN KEY (ID_CmdFournisseur) REFERENCES Cmd_Fournisseur(ID_CmdFournisseur);
+ALTER TABLE comprend ADD CONSTRAINT FK_comprend_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
