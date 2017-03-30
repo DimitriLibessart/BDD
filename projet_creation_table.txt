@@ -9,7 +9,7 @@
 
 CREATE TABLE Ingredient(
         ID_Ingredient   int (11) Auto_increment  NOT NULL ,
-        Nom_Ingredient  Varchar (25) NOT NULL ,
+        Nom_Ingredient  Varchar (50) NOT NULL ,
         Poids           Int NOT NULL ,
         Prix_Ingredient Int NOT NULL ,
         Peremption      Int NOT NULL ,
@@ -23,7 +23,7 @@ CREATE TABLE Ingredient(
 
 CREATE TABLE Potion(
         ID_Potion   int (11) Auto_increment  NOT NULL ,
-        Nom_Potion  Varchar (25) NOT NULL ,
+        Nom_Potion  Varchar (50) NOT NULL ,
         Prix_Potion Int NOT NULL ,
         Diluant     Varchar (25) NOT NULL ,
         Temperature Int NOT NULL ,
@@ -118,7 +118,7 @@ CREATE TABLE Recipient(
 CREATE TABLE Onguent(
         ID_Onguent   int (11) Auto_increment  NOT NULL ,
         Prix_Onguent Int NOT NULL ,
-        Nom_Onguent  Varchar (25) NOT NULL ,
+        Nom_Onguent  Varchar (50) NOT NULL ,
         PRIMARY KEY (ID_Onguent )
 )ENGINE=InnoDB;
 
