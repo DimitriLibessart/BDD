@@ -3,7 +3,7 @@ FOURNISSEURS:
 
 INSERT INTO `fournisseur`
 VALUES (1,'24hpotion'),
-(2,'Potpot),
+(2,'Potpot'),
 (3,'ChronoMagic'),
 (4,'Balaizone'),
 (5,'Intermage');
