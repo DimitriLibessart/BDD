@@ -13,8 +13,8 @@ VALUES (1,'24hpotion'),
 CIENTS:
 INSERT INTO `Client`
 VALUES
-('Liberte','Nicolas'),
-('Labonte','Roger'),
-('Labbes','Yves'),
-('Primeau','William'),
-('Goudreau','Lucas');
+(1,'Liberte','Nicolas'),
+(2,'Labonte','Roger'),
+(3,'Labbes','Yves'),
+(4,'Primeau','William'),
+(5,'Goudreau','Lucas');
