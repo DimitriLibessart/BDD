@@ -1,0 +1,20 @@
+FOURNISSEURS:
+
+
+INSERT INTO `fournisseur`
+VALUES (1,'24hpotion'),
+(2,'Potpot),
+(3,'ChronoMagic'),
+(4,'Balaizone'),
+(5,'Intermage');
+
+
+
+CIENTS:
+INSERT INTO `Client`
+VALUES
+('Liberte','Nicolas'),
+('Labonte','Roger'),
+('Labbes','Yves'),
+('Primeau','William'),
+('Goudreau','Lucas');
