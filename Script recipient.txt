@@ -1,4 +1,4 @@
 INSERT INTO `recipient`
-VALUES (1,'Tube','50'),
-(2,'Fiole','50'),
-(3,'Pot','50');
+VALUES (1,'Tube','30'),
+(2,'Fiole','20'),
+(3,'Pot','10');
