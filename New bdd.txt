@@ -1,0 +1,384 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Client
+#------------------------------------------------------------
+
+CREATE TABLE Client(
+        ID_Client     int (11) Auto_increment  NOT NULL ,
+        Nom_Client    Varchar (25) ,
+        Prenom_Client Varchar (25) ,
+        PRIMARY KEY (ID_Client )
+)ENGINE=InnoDB;
+
+INSERT INTO `Client` (`ID_Client`, `Nom_Client`, `Prenom_Client`) VALUES
+(1, 'Liberte', 'Nicolas'),
+(2, 'Labonte', 'Roger'),
+(3, 'Labbes', 'Yves'),
+(4, 'Primeau', 'William'),
+(5, 'Goudreau', 'Lucas');
+
+
+#------------------------------------------------------------
+# Table: CmdClient
+#------------------------------------------------------------
+
+CREATE TABLE CmdClient(
+        ID_Cmd_Client   int (11) Auto_increment  NOT NULL ,
+        Prix_Cmd_Client Int ,
+        ID_Client       Int NOT NULL ,
+        PRIMARY KEY (ID_Cmd_Client )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Ingredient
+#------------------------------------------------------------
+
+CREATE TABLE Ingredient(
+        ID_Ingredient         int (11) Auto_increment  NOT NULL ,
+        Nom_Ingredient        Varchar (50) ,
+        Poids_Ingredient      Int ,
+        Prix_Ingredient       Int ,
+        Peremption_Ingredient date NOT NULL,
+        PRIMARY KEY (ID_Ingredient )
+)ENGINE=InnoDB;
+
+INSERT INTO `ingredient` (`ID_Ingredient`, `Nom_Ingredient`, `Poids_Ingredient`, `Prix_Ingredient`, `Peremption_Ingredient`) VALUES
+(1, 'aigue-marine', 47, 20, '2017-03-30'),
+(2, 'alexandrite', 77, 20, '2017-03-30'),
+(3, 'alzurite', 12, 15, '2017-03-30'),
+(4, 'chrysoberyl', 81, 14, '2017-03-30'),
+(5, 'grenat rouge', 17, 15, '1998-06-26'),
+(6, 'grenat violet', 91, 12, '2017-03-30'),
+(7, 'irtios', 70, 13, '2017-03-30'),
+(8, 'ivoire', 54, 12, '2017-03-30'),
+(9, 'lapis lazuli', 100, 16, '2017-03-30'),
+(10, 'nephrite', 58, 13, '2017-03-30'),
+(11, 'orprase', 84, 12, '2017-03-30'),
+(12, 'peridot', 55, 15, '2017-03-30'),
+(13, 'perle doree', 28, 18, '2017-03-30'),
+(14, 'perle noire', 40, 12, '2017-03-30'),
+(15, 'pierre de lune', 80, 15, '2017-03-30'),
+(16, 'quartz bleu', 54, 11, '2017-03-30'),
+(17, 'sardonyx', 70, 18, '2017-03-30'),
+(18, 'spinelle vert sombre', 21, 12, '2017-03-30'),
+(19, 'spodumene', 12, 20, '2017-03-30'),
+(20, 'topaze jaune d or', 57, 15, '2017-03-30'),
+(21, 'tourmaline blanche', 96, 11, '2017-03-30'),
+(22, 'zircon', 88, 13, '2017-03-30'),
+(23, 'amulette d armure naturel', 92, 14, '2017-03-30'),
+(24, 'anneau du belier', 26, 14, '2017-03-30'),
+(25, 'baguette de sagesse du hi', 61, 20, '2017-03-30'),
+(26, 'botte de sept lieu', 96, 13, '2017-03-30'),
+(27, 'ecu en acier', 67, 11, '2017-03-30'),
+(28, 'elixir de nage', 71, 20, '2017-03-30'),
+(29, 'epee batarde', 11, 17, '2017-03-30'),
+(30, 'epee courte', 77, 12, '2017-03-30'),
+(31, 'huile de tenebres', 78, 14, '2017-03-30'),
+(32, 'masse d arme lourde', 16, 18, '2017-03-30'),
+(33, 'onguent d intempolarite', 46, 13, '2017-03-30'),
+(34, 'parchemin divin', 50, 20, '2017-03-30'),
+(35, 'potion profande', 82, 18, '2017-03-30'),
+(36, 'potion d agrandissement', 40, 16, '2017-03-30'),
+(37, 'potion de flou', 35, 16, '2017-03-30'),
+(38, 'potion de grace feline', 49, 11, '2017-03-30'),
+(39, 'potion de regain d assura', 40, 16, '2017-03-30'),
+(40, 'potion de ruse du renard', 42, 20, '2017-03-30'),
+(41, 'potion de sagesse de hibo', 71, 18, '2017-03-30'),
+(42, 'urgosh nain', 76, 18, '2017-03-30'),
+(43, 'antidote', 40, 14, '2017-03-30'),
+(44, 'arbalete legere de maitre', 67, 17, '2017-03-30'),
+(45, 'arc court de maitre', 72, 20, '2017-03-30'),
+(46, 'armure a plaques', 26, 13, '2017-03-30'),
+(47, 'armure de cuir cloutee de', 20, 12, '2017-03-30'),
+(48, 'batonnet fumigene', 98, 20, '2017-03-30'),
+(49, 'cadenas simple', 14, 18, '2017-03-30'),
+(50, 'carreaux', 56, 10, '2017-03-30'),
+(51, 'chemise de maille', 21, 11, '2017-03-30'),
+(52, 'cimeterre de maitre', 67, 19, '2017-03-30'),
+(53, 'eau benite', 50, 18, '2017-03-30'),
+(54, 'ecu en acier de maitre', 77, 20, '2017-03-30'),
+(55, 'ecu en ebenite', 63, 16, '2017-03-30'),
+(56, 'epee longue de maitre', 95, 16, '2017-03-30'),
+(57, 'gourdin de maitre', 33, 14, '2017-03-30'),
+(58, 'grande hanche de maitre', 13, 19, '2017-03-30'),
+(59, 'hache de guerre naine de ', 66, 18, '2017-03-30'),
+(60, 'hallebarde de maitre', 91, 16, '2017-03-30'),
+(61, 'harnois', 56, 20, '2017-03-30'),
+(62, 'menottes de qualite suppe', 40, 13, '2017-03-30'),
+(63, 'pic de guerre leger de ma', 96, 16, '2017-03-30'),
+(64, 'pierre a tonnerre', 97, 10, '2017-03-30'),
+(65, 'rapiere de maitre', 29, 12, '2017-03-30'),
+(66, 'rondache en ebenite', 68, 17, '2017-03-30'),
+(67, 'serpe de maitre', 10, 19, '2017-03-30'),
+(68, 'elexir secret', 87, 15, '2017-03-30'),
+(69, 'poudre secrete', 74, 10, '2017-03-30'),
+(70, 'mineral secret', 82, 12, '2017-03-30');
+
+
+#------------------------------------------------------------
+# Table: Fournisseur
+#------------------------------------------------------------
+
+CREATE TABLE Fournisseur(
+        ID_Fournisseur  int (11) Auto_increment  NOT NULL ,
+        Nom_Fournisseur Varchar (25) ,
+        PRIMARY KEY (ID_Fournisseur )
+)ENGINE=InnoDB;
+
+INSERT INTO `Fournisseur` (`ID_Fournisseur`, `Nom_Fournisseur`) VALUES
+(1, '24hpotion'),
+(2, 'Potpot'),
+(3, 'ChronoMagic'),
+(4, 'Balaizone'),
+(5, 'Intermage');
+
+
+#------------------------------------------------------------
+# Table: CmdFournisseur
+#------------------------------------------------------------
+
+CREATE TABLE CmdFournisseur(
+        ID_Cmd_Fournisseur   int (11) Auto_increment  NOT NULL ,
+        Prix_Cmd_Fournisseur Int ,
+        ID_Fournisseur       Int NOT NULL ,
+        PRIMARY KEY (ID_Cmd_Fournisseur )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Recipient
+#------------------------------------------------------------
+
+CREATE TABLE Recipient(
+        ID_Recipient   int (11) Auto_increment  NOT NULL ,
+        Nom_Recipient  Varchar (25) ,
+        Prix_Recipient Int ,
+        PRIMARY KEY (ID_Recipient )
+)ENGINE=InnoDB;
+
+INSERT INTO `Recipient` (`ID_Recipient`, `Nom_Recipient`, `Prix_Recipient`) VALUES
+(1, 'Tube', 10),
+(2, 'Fiole', 20),
+(3, 'Pot', 30);
+
+
+#------------------------------------------------------------
+# Table: Stock
+#------------------------------------------------------------
+
+CREATE TABLE Stock(
+        ID_stock        int (11) Auto_increment  NOT NULL ,
+        Quantite_Stock  Int ,
+        Fraicheur_Stock Int ,
+        ID_Ingredient   Int NOT NULL ,
+        PRIMARY KEY (ID_stock )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Onguent
+#------------------------------------------------------------
+
+CREATE TABLE Onguent(
+        ID_Onguent   int (11) Auto_increment  NOT NULL ,
+        Nom_Onguent  Varchar (50) ,
+        Prix_Onguent Int ,
+        PRIMARY KEY (ID_Onguent )
+)ENGINE=InnoDB;
+
+INSERT INTO `Onguent` (`ID_Onguent`,`Nom_Onguent`, `Prix_Onguent`) VALUES
+(1,'Onguent d arme magique','474'),
+(2,'Onguent de bénédiction d arme','799'),
+(3,'Onguent de gourdin magique','481'),
+(4,'Onguent de pierre magique','345'),
+(5,'Onguent de ténèbres','658'),
+(6,'Onguent d agrandissement','975'),
+(7,'Onguent d aide','940'),
+(8,'Onguent d alignement indétectable','376'),
+(9,'Onguent d armure de mage','124'),
+(10,'Onguent de bouclier de la foi','436'),
+(11,'Onguent de délivrance de la paralysie','963'),
+(12,'Onguent de détection faussée','525'),
+(13,'Onguent de flou','440'),
+(14,'Onguent de force de taureau','238'),
+(15,'Onguent de grâce féline','149'),
+(16,'Onguent de lévitation','869'),
+(17,'Onguent de morsure magique','326'),
+(18,'Onguent de passage sans traces','634'),
+(19,'Onguent de pattes d araignée','473'),
+(20,'Onguent de peau d écorce','236'),
+(21,'Onguent de protection contre la loi','681'),
+(22,'Onguent de protection contre le bien','210'),
+(23,'Onguent de protection contre le chaos','145'),
+(24,'Onguent de protection contre le mal','936'),
+(25,'Onguent de protection contre les projectiles','760'),
+(26,'Onguent de ralentissement du poison','220'),
+(27,'Onguent de rapetissement','533'),
+(28,'Onguent de regain d assurance','430'),
+(29,'Onguent de résistances aux énergies destructives','113'),
+(30,'Onguent de restauration partielle','805'),
+(31,'Onguent de ruse du renard','716'),
+(32,'Onguent de sagesse du hibou','821'),
+(33,'Onguent de sanctuaire','991'),
+(34,'Onguent de saut','832'),
+(35,'Onguent de soins légers','764'),
+(36,'Onguent de soins modérés','652'),
+(37,'Onguent de splendeur de l aigle','552'),
+(38,'Onguent de vision dans le noir','436'),
+(39,'Onguent d endurance aux énergies destructives','445'),
+(40,'Onguent d endurance de l ours','473'),
+(41,'Onguent d invisibilité pour les animaux','335'),
+(42,'Onguent d invisibilité pour les morts-vivants','331'),
+(43,'Onguent d invisibilité','645');
+
+#------------------------------------------------------------
+# Table: Potion
+#------------------------------------------------------------
+
+CREATE TABLE Potion(
+        ID_Potion          int (11) Auto_increment  NOT NULL ,
+        Nom_Potion         Varchar (50) ,
+	Prix_Potion        Int ,
+        Diluant_Potion     Varchar (25) ,
+        Temperature_Potion Int ,
+        ID_Inventeur       Int NOT NULL ,
+        PRIMARY KEY (ID_Potion )
+)ENGINE=InnoDB;
+
+INSERT INTO `Potion` (`ID_Potion`, `Nom_Potion`, `Prix_Potion`,`Diluant_Potion`,`Temperature_Potion`,`ID_Inventeur`) VALUES
+(1,'Huile d arme magique','474','Vin','93','3'),
+(2,'Huile de bénédiction d arme','799','Jus de fruit','55','4'),
+(3,'Huile de gourdin magique','481','Eau','80','2'),
+(4,'Huile de pierre magique','345','Jus de fruit','93','3'),
+(5,'Huile de ténèbres','658','Eau','55','5'),
+(6,'Potion d agrandissement','975','Vin','80','3'),
+(7,'Potion d aide','940','Jus de fruit','93','4'),
+(8,'Potion d alignement indétectable','376','Bière','55','5'),
+(9,'Potion d armure de mage','124','Jus de fruit','80','1'),
+(10,'Potion de bouclier de la foi','436','Vin','93','1'),
+(11,'Potion de délivrance de la paralysie','963','Vin','55','5'),
+(12,'Potion de détection faussée','525','Vin','80','2'),
+(13,'Potion de flou','440','Bière','93','1'),
+(14,'Potion de force de taureau','238','Jus de fruit','55','5'),
+(15,'Potion de grâce féline','149','Jus de fruit','80','3'),
+(16,'Potion de lévitation','869','Jus de fruit','93','1'),
+(17,'Potion de morsure magique','326','Jus de fruit','55','2'),
+(18,'Potion de passage sans traces','634','Bière','80','5'),
+(19,'Potion de pattes d araignée','473','Eau','93','3'),
+(20,'Potion de peau d écorce','236','Vin','55','1'),
+(21,'Potion de protection contre la loi','681','Vin','80','5'),
+(22,'Potion de protection contre le bien','210','Bière','93','2'),
+(23,'Potion de protection contre le chaos','145','Bière','55','3'),
+(24,'Potion de protection contre le mal','936','Bière','80','2'),
+(25,'Potion de protection contre les projectiles','760','Vin','93','1'),
+(26,'Potion de ralentissement du poison','220','Vin','83','2'),
+(27,'Potion de rapetissement','533','Vin','89','4'),
+(28,'Potion de regain d assurance','430','Jus de fruit','79','1'),
+(29,'Potion de résistances aux énergies destructives','113','Vin','81','5'),
+(30,'Potion de restauration partielle','805','Vin','81','3'),
+(31,'Potion de ruse du renard','716','Bière','76','4'),
+(32,'Potion de sagesse du hibou','821','Jus de fruit','10','5'),
+(33,'Potion de sanctuaire','991','Eau','55','5'),
+(34,'Potion de saut','832','Bière','51','1'),
+(35,'Potion de soins légers','764','Bière','88','2'),
+(36,'Potion de soins modérés','652','Jus de fruit','69','2'),
+(37,'Potion de splendeur de l aigle','552','Jus de fruit','85','2'),
+(38,'Potion de vision dans le noir','436','Jus de fruit','99','5'),
+(39,'Potion d endurance aux énergies destructives','445','Vin','91','2'),
+(40,'Potion d endurance de l ours','473','Jus de fruit','68','5'),
+(41,'Potion d invisibilité pour les animaux','335','Vin','81','2'),
+(42,'Potion d invisibilité pour les morts-vivants','331','Bière','91','3'),
+(43,'Potion d invisibilité','645','Jus de fruit','77','3');
+
+
+#------------------------------------------------------------
+# Table: Inventeur
+#------------------------------------------------------------
+
+CREATE TABLE Inventeur(
+        ID_Inventeur            int (11) Auto_increment  NOT NULL ,
+        Nom_Inventeur           Varchar (25) ,
+        Numero_Permis_Inventeur Int ,
+        PRIMARY KEY (ID_Inventeur )
+)ENGINE=InnoDB;
+
+INSERT INTO `Inventeur` (`ID_Inventeur`, `Nom_Inventeur`, `Numero_Permis_Inventeur`) VALUES
+(1, 'Panoramix', 8034),
+(2, 'Gandalf', 3965),
+(3, 'Elias de Kelliwic h', 2783),
+(4, 'Merlin', 2931),
+(5, 'Severus Rogue', 3403);
+
+
+#------------------------------------------------------------
+# Table: comporte
+#------------------------------------------------------------
+
+CREATE TABLE comporte(
+        Quantite      Int NOT NULL ,
+        ID_Cmd_Client Int NOT NULL ,
+        ID_Ingredient Int NOT NULL ,
+        ID_Recipient  Int NOT NULL ,
+        ID_Onguent    Int NOT NULL ,
+        ID_Potion     Int NOT NULL ,
+        PRIMARY KEY (ID_Cmd_Client ,ID_Ingredient ,ID_Recipient ,ID_Onguent ,ID_Potion )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: comprend
+#------------------------------------------------------------
+
+CREATE TABLE comprend(
+        Quantite           Int NOT NULL ,
+        ID_Cmd_Fournisseur Int NOT NULL ,
+        ID_Ingredient      Int NOT NULL ,
+        PRIMARY KEY (ID_Cmd_Fournisseur ,ID_Ingredient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: compose
+#------------------------------------------------------------
+
+CREATE TABLE compose(
+        Quantite      Int NOT NULL ,
+        Unite         Varchar (25) ,
+        ID_Onguent    Int NOT NULL ,
+        ID_Ingredient Int NOT NULL ,
+        PRIMARY KEY (ID_Onguent ,ID_Ingredient )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: contient
+#------------------------------------------------------------
+
+CREATE TABLE contient(
+        Quantite      Int NOT NULL ,
+        Unite         Varchar (25) NOT NULL ,
+        ID_Potion     Int NOT NULL ,
+        ID_Ingredient Int NOT NULL ,
+        PRIMARY KEY (ID_Potion ,ID_Ingredient )
+)ENGINE=InnoDB;
+
+ALTER TABLE CmdClient ADD CONSTRAINT FK_CmdClient_ID_Client FOREIGN KEY (ID_Client) REFERENCES Client(ID_Client);
+ALTER TABLE CmdFournisseur ADD CONSTRAINT FK_CmdFournisseur_ID_Fournisseur FOREIGN KEY (ID_Fournisseur) REFERENCES Fournisseur(ID_Fournisseur);
+ALTER TABLE Stock ADD CONSTRAINT FK_Stock_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE Potion ADD CONSTRAINT FK_Potion_ID_Inventeur FOREIGN KEY (ID_Inventeur) REFERENCES Inventeur(ID_Inventeur);
+ALTER TABLE comporte ADD CONSTRAINT FK_comporte_ID_Cmd_Client FOREIGN KEY (ID_Cmd_Client) REFERENCES CmdClient(ID_Cmd_Client);
+ALTER TABLE comporte ADD CONSTRAINT FK_comporte_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE comporte ADD CONSTRAINT FK_comporte_ID_Recipient FOREIGN KEY (ID_Recipient) REFERENCES Recipient(ID_Recipient);
+ALTER TABLE comporte ADD CONSTRAINT FK_comporte_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
+ALTER TABLE comporte ADD CONSTRAINT FK_comporte_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
+ALTER TABLE comprend ADD CONSTRAINT FK_comprend_ID_Cmd_Fournisseur FOREIGN KEY (ID_Cmd_Fournisseur) REFERENCES CmdFournisseur(ID_Cmd_Fournisseur);
+ALTER TABLE comprend ADD CONSTRAINT FK_comprend_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE compose ADD CONSTRAINT FK_compose_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
+ALTER TABLE compose ADD CONSTRAINT FK_compose_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
+ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
+ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
