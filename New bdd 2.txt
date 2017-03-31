@@ -29,15 +29,16 @@ INSERT INTO `Client` (`ID_Client`, `Nom_Client`, `Prenom_Client`) VALUES
 CREATE TABLE CmdClient(
         ID_Cmd_Client int (11) Auto_increment  NOT NULL ,
         ID_Client     Int NOT NULL ,
+	Etat_Cmd      Varchar (25) ,
         PRIMARY KEY (ID_Cmd_Client )
 )ENGINE=InnoDB;
 
-INSERT INTO `CmdClient` (`ID_Cmd_Client`, `ID_Client`) VALUES
-(1, '4'),
-(2, '2'),
-(3, '1'),
-(4, '5'),
-(5, '3');
+INSERT INTO `CmdClient` (`ID_Cmd_Client`, `ID_Client`,`Etat_Cmd`) VALUES
+(1, '4','En cours'),
+(2, '2','En cours'),
+(3, '1','En cours'),
+(4, '5','En cours'),
+(5, '3','En cours');
 
 
 #------------------------------------------------------------
