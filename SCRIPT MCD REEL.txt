@@ -165,11 +165,11 @@ CREATE TABLE comprend(
 #------------------------------------------------------------
 
 CREATE TABLE compose(
-        Quantite      Int NOT NULL ,
         ID_Onguent    Int NOT NULL ,
         ID_Ingredient Int NOT NULL ,
         ID_Unite      Int NOT NULL ,
-        PRIMARY KEY (ID_Onguent ,ID_Ingredient ,ID_Unite )
+        Quantite      Int NOT NULL ,
+        PRIMARY KEY (ID_Onguent ,ID_Ingredient )
 )ENGINE=InnoDB;
 
 
@@ -178,11 +178,12 @@ CREATE TABLE compose(
 #------------------------------------------------------------
 
 CREATE TABLE contient(
-        Quantite      Int NOT NULL ,
         ID_Potion     Int NOT NULL ,
         ID_Ingredient Int NOT NULL ,
+        Quantite      Int NOT NULL ,
         ID_Unite      Int NOT NULL ,
-        PRIMARY KEY (ID_Potion ,ID_Ingredient ,ID_Unite )
+		Duree		  Int Not NULL , 
+        PRIMARY KEY (ID_Potion ,ID_Ingredient )
 )ENGINE=InnoDB;
 
 
