@@ -1,0 +1,21 @@
+DELIMITER | 
+CREATE PROCEDURE cmd_client(in ID_Cmd int)  
+    
+BEGIN
+
+    SELECT DISTINCT CmdClient.ID_Cmd_Client,onguent.Nom_Onguent, comporte.Quantite,Potion.Nom_Potion, concoit.Quantite,Ingredient.Nom_Ingredient,dispose.Quantite
+    FROM CmdClient, comporte, onguent, concoit, potion, dispose, Stock,Ingredient
+    WHERE CmdClient.ID_Cmd_Client = ID_Cmd
+    AND comporte.ID_Cmd_Client =ID_Cmd
+    AND comporte.ID_Onguent = onguent.ID_onguent
+    AND concoit.ID_Cmd_Client = ID_Cmd
+    AND concoit.ID_Potion = Potion.ID_Potion
+    AND dispose.ID_Cmd_Client = ID_Cmd
+    AND dispose.ID_stock = Stock.ID_stock
+    AND Ingredient.ID_Ingredient = Stock.ID_Ingredient;
+
+END| 
+Delimiter ;
+
+
+
