@@ -1,5 +1,5 @@
 SELECT
-  AVG(cnt.nb_ing)
+  AVG(nb_ing.cnt)
 FROM
   (
   SELECT
