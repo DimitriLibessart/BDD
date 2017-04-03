@@ -1,0 +1,20 @@
+Affichage du stock des ingrédients et mise à jour à la réception de nouveaux ingrédients
+
+----------------------------------------------------------------------------------
+
+
+DELIMITER | 
+CREATE PROCEDURE reception_ingredient(in ID_Stock_add int, in nbr_add int)    
+    
+BEGIN
+
+    update stock
+    set Quantite_Stock = Quantite_Stock + nbr_add
+    where ID_Stock = ID_Stock_add;
+
+    select stock.ID_Stock, ingredient.Nom_Ingredient,stock.Quantite_Stock
+    from Stock,ingredient
+    where stock.ID_Stock = ingredient.ID_Ingredient;
+ 
+END| 
+Delimiter ;
