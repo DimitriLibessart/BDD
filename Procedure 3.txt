@@ -1,0 +1,28 @@
+)Suppression d’un ingrédient arrivé à expiration
+
+-----------------------------------------------------
+
+
+
+DELIMITER | 
+CREATE PROCEDURE peremption_ingredients() 
+    
+BEGIN
+
+    DELETE stock FROM stock JOIN ingredient ON stock.ID_Ingredient = ingredient.ID_Ingredient
+    WHERE ingredient.Peremption_Ingredient = stock.Fraicheur_Stock;
+
+ 
+END| 
+Delimiter ;
+
+
+
+
+
+
+
+
+
+
+
