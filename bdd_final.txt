@@ -784,6 +784,19 @@ INSERT INTO `concoit` (`ID_Cmd_Client`, `ID_Potion`, `ID_Recipient`,`Quantite`) 
 (4, '41', '2','8'),
 (5, '6', '3','6');
 
+#------------------------------------------------------------
+# Table: Dispose
+#------------------------------------------------------------
+
+CREATE TABLE Dispose(
+        ID_Stock      Int NOT NULL ,
+        ID_Cmd_Client Int NOT NULL ,
+        Quantite      Int NOT NULL ,
+        PRIMARY KEY (ID_Stock ,ID_Cmd_Client )
+)ENGINE=InnoDB;
+
+
+
 
 
 
@@ -801,6 +814,8 @@ ALTER TABLE compose ADD CONSTRAINT FK_compose_ID_Unite FOREIGN KEY (ID_Unite) RE
 ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
 ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
 ALTER TABLE contient ADD CONSTRAINT FK_contient_ID_Unite FOREIGN KEY (ID_Unite) REFERENCES Unite(ID_Unite);
+ALTER TABLE dispose ADD CONSTRAINT FK_dispose_ID_stock FOREIGN KEY (ID_stock) REFERENCES Stock(ID_stock);
+ALTER TABLE dispose ADD CONSTRAINT FK_dispose_ID_Cmd_Client FOREIGN KEY (ID_Cmd_Client) REFERENCES CmdClient(ID_Cmd_Client);
 ALTER TABLE comporte ADD CONSTRAINT FK_comporte_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
 ALTER TABLE comporte ADD CONSTRAINT FK_comporte_ID_Cmd_Client FOREIGN KEY (ID_Cmd_Client) REFERENCES CmdClient(ID_Cmd_Client);
 ALTER TABLE concoit ADD CONSTRAINT FK_concoit_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES Potion(ID_Potion);
