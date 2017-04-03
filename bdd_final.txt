@@ -396,11 +396,18 @@ INSERT INTO `Unite` (`ID_Unite`, `Nom_Unite`) VALUES
 #------------------------------------------------------------
 
 CREATE TABLE comprend(
-        Quantite           Int NOT NULL ,
-        ID_Cmd_Fournisseur Int NOT NULL ,
         ID_stock           Int NOT NULL ,
+        ID_Cmd_Fournisseur Int NOT NULL ,
+        Quantite           Int NOT NULL ,
         PRIMARY KEY (ID_Cmd_Fournisseur ,ID_stock )
 )ENGINE=InnoDB;
+
+INSERT INTO `comprend` (`ID_Stock`,`ID_Cmd_Fournisseur`,`Quantite`) VALUES
+(1, '2', '6'),
+(8, '1', '12'),
+(16, '4', '9'),
+(4, '3', '15'),
+(10,  '5', '22');
 
 
 #------------------------------------------------------------
@@ -743,6 +750,13 @@ CREATE TABLE Dispose(
         Quantite      Int NOT NULL ,
         PRIMARY KEY (ID_Stock ,ID_Cmd_Client )
 )ENGINE=InnoDB;
+
+INSERT INTO `Dispose` (`ID_Stock`,`ID_Cmd_Client`,`Quantite`) VALUES
+(1, '2', '2'),
+(5, '1', '4'),
+(12, '4', '4'),
+(8, '3', '3'),
+(3,  '5', '5');
 
 
 
