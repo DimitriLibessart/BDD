@@ -1,0 +1,19 @@
+DELIMITER | 
+CREATE PROCEDURE envoi_commande(in ID_Cmd int)    
+    
+BEGIN
+
+    update stock
+    inner join dispose on dispose.ID_stock = Stock.id_stock
+    set Stock.Quantite_Stock = Stock.Quantite_Stock - dispose.Quantite
+    where dispose.ID_Cmd_Client = ID_Cmd
+    and Stock.ID_stock = dispose.ID_Stock;
+
+    update CmdClient 
+    set CmdClient.Etat_Cmd = 'Envoye'
+    where CmdClient.ID_Cmd_Client = ID_Cmd;
+ 
+END| 
+Delimiter ;
+
+
