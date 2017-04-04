@@ -362,6 +362,7 @@ CREATE TABLE recette(
 	Statue BOOLEAN ,
 	Etat BOOLEAN,
 	ID_Potion int (11) NOT NULL,
+	ID_Potion int (11) NOT NULL,
 	PRIMARY KEY (ID_Recette)
 );
 
@@ -782,6 +783,7 @@ ALTER TABLE CmdFournisseur ADD CONSTRAINT FK_CmdFournisseur_ID_Fournisseur FOREI
 ALTER TABLE Stock ADD CONSTRAINT FK_Stock_ID_Ingredient FOREIGN KEY (ID_Ingredient) REFERENCES Ingredient(ID_Ingredient);
 ALTER TABLE Potion ADD CONSTRAINT FK_Potion_ID_Inventeur FOREIGN KEY (ID_Inventeur) REFERENCES Inventeur(ID_Inventeur);
 ALTER TABLE Potion ADD CONSTRAINT FK_Potion_ID_Dilaunt FOREIGN KEY (ID_Diluant) REFERENCES Diluant(ID_Diluant);
+ALTER TABLE recette ADD CONSTRAINT FK_recette_ID_Onguent FOREIGN KEY (ID_Onguent) REFERENCES Onguent(ID_Onguent);
 ALTER TABLE recette ADD CONSTRAINT FK_recette_ID_Potion FOREIGN KEY (ID_Potion) REFERENCES potion(ID_Potion) ON DELETE CASCADE;
 ALTER TABLE comprend ADD CONSTRAINT FK_comprend_ID_Cmd_Fournisseur FOREIGN KEY (ID_Cmd_Fournisseur) REFERENCES CmdFournisseur(ID_Cmd_Fournisseur);
 ALTER TABLE comprend ADD CONSTRAINT FK_comprend_ID_stock FOREIGN KEY (ID_stock) REFERENCES Stock(ID_stock);
