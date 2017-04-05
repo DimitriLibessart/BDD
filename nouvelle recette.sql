@@ -1,5 +1,23 @@
 DELIMITER |
-CREATE PROCEDURE ajout_recette (in NomInventeur VARCHAR, in NumeroPermis INT, in NomRecette VARCHAR, in NomDiluant VARCHAR, in PrixPotion INT, in TemperaturePotion INT, in NomIngredient1 VARCHAR, in NomUnite1 VARCHAR, in Quantite1 INT, In durée1 INT, in NomIngredient2 VARCHAR, in NomUnite2 VARCHAR, in Quantite2 INT, In durée2 INT, in NomIngredient3 VARCHAR,in NomUnite3 VARCHAR, in Quantite3 INT, In durée3 INT)
+CREATE PROCEDURE ajout_recette(
+ IN NomInventeur VARCHAR,
+ IN NumeroPermis INT,
+ IN NomRecette VARCHAR,
+ IN NomDiluant VARCHAR,
+ IN PrixPotion INT,
+ IN TemperaturePotion INT,
+ IN NomIngredient1 VARCHAR,
+ IN NomUnite1 VARCHAR,
+ IN Quantite1 INT,
+ IN durée1 INT,
+ IN NomIngredient2 VARCHAR,
+ IN NomUnite2 VARCHAR,
+ IN Quantite2 INT,
+ IN durée2 INT,
+ IN NomIngredient3 VARCHAR,
+ IN NomUnite3 VARCHAR,
+ IN Quantite3 INT,
+ IN durée3 INT)
 
 	SELECT SUM(Inventeur.Inventeur_Existant) sum
 	FROM(
@@ -23,7 +41,7 @@ CREATE PROCEDURE ajout_recette (in NomInventeur VARCHAR, in NumeroPermis INT, in
 	
 	SET @inv = (SELECT ID_Inventeur
 	From inventeur
-	Where NomInventeur = Nom_Inventeur	
+	Where Nominventeur = Nom_Inventeur	
 	);;
 
 	
@@ -48,8 +66,8 @@ CREATE PROCEDURE ajout_recette (in NomInventeur VARCHAR, in NumeroPermis INT, in
 	FROM unite
 	WHERE NomUnite1 = Nom_Unité);;
 	
-	SET @ing = (SELECT ID_Unite
-	FROM unite
+	SET @INg = (SELECT ID_Ingredient
+	FROM Ingredient
 	WHERE NomIngredient1 = Nom_Ingredient);;	
 	
 	
@@ -64,14 +82,14 @@ CREATE PROCEDURE ajout_recette (in NomInventeur VARCHAR, in NumeroPermis INT, in
 	
 	
 	
-	SET @unit = (SELECT ID_Unite
-	FROM unite
+	SET @unit = (SELECT ID_Ingredient
+	FROM Ingredient
 	WHERE NomUnite2 = Nom_Unité);;
 	
 	SET @ing = (SELECT ID_Unite
 	FROM unite
 	WHERE NomIngredient2 = Nom_Ingredient);;
-	
+
 	
 	INSERT INTO `contient`  (`Duree`, `ID_Ingredient`, `ID_Potion`, `ID_Unite`, `Quantite`)
 	VALUES (durée1, @ing, @pot, @unit, Quantite1);
@@ -85,8 +103,8 @@ CREATE PROCEDURE ajout_recette (in NomInventeur VARCHAR, in NumeroPermis INT, in
 	FROM unite
 	WHERE NomUnite3 = Nom_Unité);;
 	
-	SET @ing = (SELECT ID_Unite
-	FROM unite
+	SET @ing = (SELECT ID_Ingredient
+	FROM Ingredient
 	WHERE NomIngredient3 = Nom_Ingredient);;
 	
 	
