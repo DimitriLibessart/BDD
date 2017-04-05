@@ -20,8 +20,8 @@ INSERT INTO `Client` (`ID_Client`, `Nom_Client`, `Prenom_Client`) VALUES
 #------------------------------------------------------------
 
 INSERT INTO `CmdClient` (`ID_Cmd_Client`, `ID_Client`,`Etat_Cmd`) VALUES
-(1, '4','En cours'),
-(2, '2','En cours'),
+(1, '4','livree'),
+(2, '2','livree'),
 (3, '1','En cours'),
 (4, '5','En cours'),
 (5, '3','En cours');

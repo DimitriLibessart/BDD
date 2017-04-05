@@ -34,8 +34,8 @@ CREATE TABLE CmdClient(
 )ENGINE=InnoDB;
 
 INSERT INTO `CmdClient` (`ID_Cmd_Client`, `ID_Client`,`Etat_Cmd`) VALUES
-(1, '4','En cours'),
-(2, '2','En cours'),
+(1, '4','Livree'),
+(2, '2','Livree'),
 (3, '1','En cours'),
 (4, '5','En cours'),
 (5, '3','En cours');
