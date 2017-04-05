@@ -1,23 +1,23 @@
 DELIMITER |
 CREATE PROCEDURE ajout_recette(
- IN NomInventeur VARCHAR,
- IN NumeroPermis INT,
- IN NomRecette VARCHAR,
- IN NomDiluant VARCHAR,
- IN PrixPotion INT,
- IN TemperaturePotion INT,
- IN NomIngredient1 VARCHAR,
- IN NomUnite1 VARCHAR,
- IN Quantite1 INT,
- IN durée1 INT,
- IN NomIngredient2 VARCHAR,
- IN NomUnite2 VARCHAR,
- IN Quantite2 INT,
- IN durée2 INT,
- IN NomIngredient3 VARCHAR,
- IN NomUnite3 VARCHAR,
- IN Quantite3 INT,
- IN durée3 INT)
+ IN NomInventeur VARCHAR(255),
+ IN NumeroPermis INT(11),
+ IN NomRecette VARCHAR(255),
+ IN NomDiluant VARCHAR(255),
+ IN PrixPotion INT(11),
+ IN TemperaturePotion INT(11),
+ IN NomIngredient1 VARCHAR(255),
+ IN NomUnite1 VARCHAR(255),
+ IN Quantite1 INT(11),
+ IN durée1 INT(11),
+ IN NomIngredient2 VARCHAR(255),
+ IN NomUnite2 VARCHAR(255),
+ IN Quantite2 INT(11),
+ IN durée2 INT(11),
+ IN NomIngredient3 VARCHAR(255),
+ IN NomUnite3 VARCHAR(255),
+ IN Quantite3 INT(11),
+ IN durée3 INT(11))
 
 	SELECT SUM(Inventeur.Inventeur_Existant) sum
 	FROM(
@@ -115,4 +115,4 @@ CREATE PROCEDURE ajout_recette(
 	
 
 END |
-DELIMTER ; 
+DELIMITER ; 
