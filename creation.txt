@@ -127,13 +127,11 @@ CREATE TABLE Potion(
 #------------------------------------------------------------
 # Table: recette
 #------------------------------------------------------------
-
 CREATE TABLE recette(
 	ID_Recette int(11) Auto_increment NOT NULL,
 	Nom_Recette Varchar (25),
-	Statue BOOLEAN DEFAULT 'false',
-	Etat BOOLEAN DEFAULT 'false',
-	ID_Potion int (11) NOT NULL,
+	Statue BOOLEAN DEFAULT false,
+	Etat BOOLEAN DEFAULT false,
 	ID_Potion int (11) NOT NULL,
 	PRIMARY KEY (ID_Recette)
 );
