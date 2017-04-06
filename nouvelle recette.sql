@@ -54,17 +54,19 @@ WHERE Exisant=1;
 	FROM unite
 	WHERE NomUnite1 = Nom_Unité);;
 	
-	SET @INg = (SELECT ID_Ingredient
+	SET @ing = (SELECT ID_Ingredient
 	FROM Ingredient
 	WHERE NomIngredient1 = Nom_Ingredient);;	
 	
-	
+	SET @quant = (SELECT Quantite
+	FROM contient
+	WHERE Quantite1 = Quantite);;
 	
 	INSERT INTO `contient`  (`Duree`, `ID_Ingredient`, `ID_Potion`, `ID_Unite`, `Quantite`)
-	VALUES (durée1, @ing, @pot, @unit, Quantite1);
+	VALUES (durée1, @ing, @pot, @unit, @quant);
 	
 	INSERT INTO `compose` (`ID_Ingredient`, `ID_Onguent`, `Quantite`, `ID_Unite`)
-	VALUES (@ing, @pot, Quantite1, @unit);
+	VALUES (@ing, @pot, @quant, @unit);
 	
 	
 	
@@ -77,12 +79,16 @@ WHERE Exisant=1;
 	SET @ing = (SELECT ID_Unite
 	FROM unite
 	WHERE NomIngredient2 = Nom_Ingredient);;
+	
+	SET @quant = (SELECT Quantite
+	FROM contient
+	WHERE Quantite2 = Quantite);;
 
 	
 	INSERT INTO `contient`  (`Duree`, `ID_Ingredient`, `ID_Potion`, `ID_Unite`, `Quantite`)
-	VALUES (durée1, @ing, @pot, @unit, Quantite1);
+	VALUES (durée1, @ing, @pot, @unit, @quant);
 	INSERT INTO `compose` (`ID_Ingredient`, `ID_Onguent`, `Quantite`, `ID_Unite`)
-	VALUES (@ing, @pot, Quantite1, @unit);
+	VALUES (@ing, @pot, @quant, @unit);
 	
 	
 	
@@ -95,11 +101,15 @@ WHERE Exisant=1;
 	FROM Ingredient
 	WHERE NomIngredient3 = Nom_Ingredient);;
 	
+	SET @quant = (SELECT Quantite
+	FROM contient
+	WHERE Quantite3 = Quantite);;
+	
 	
 	INSERT INTO `contient`  (`Duree`, `ID_Ingredient`, `ID_Potion`, `ID_Unite`, `Quantite`)
-	VALUES (durée1, @ing, @pot, @unit, Quantite1);
+	VALUES (durée1, @ing, @pot, @unit, @quant);
 	INSERT INTO `compose` (`ID_Ingredient`, `ID_Onguent`, `Quantite`, `ID_Unite`)
-	VALUES (@ing, @pot, Quantite1, @unit);
+	VALUES (@ing, @pot, @quant, @unit);
 	
 
 END |
