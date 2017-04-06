@@ -27,18 +27,18 @@ SET @nrec = NomRecette;
 SET @ndil = NomDiluant;
 SET @prix = PrixPotion;
 SET @Ptemp = TemperaturePotion;
-SET @ning1 = NomIngredient1
+SET @ning1 = NomIngredient1;
 SET @quant = Quantite1;
 SET @duree = durée1;
-SET @unit1 = NomUnite1
-SET @ning2 = NomIngredient2
+SET @unit1 = NomUnite1;
+SET @ning2 = NomIngredient2;
 SET @quant = Quantite2;
 SET @duree = durée2;
-SET @unit2 = NomUnite2
-SET @ning3 = NomIngredient3
+SET @unit2 = NomUnite2;
+SET @ning3 = NomIngredient3;
 SET @quant = Quantite3;
 SET @duree = durée3;
-SET @unit3 = NomUnite3
+SET @unit3 = NomUnite3;
 
 INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
 VALUES (@ninv, @permis)
@@ -66,8 +66,7 @@ VALUES (@nrec, @prix, @dil, @Ptemp, @inv );
 	
 SET @pot = (SELECT ID_Potion
 	FROM potion 
-	WHERE @nrec = Nom_Potion
-	);;
+	WHERE @nrec = Nom_Potion);;
 	
 SET @unit = (SELECT ID_Unite
 	FROM unite
