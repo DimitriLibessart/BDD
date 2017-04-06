@@ -20,10 +20,12 @@ CREATE PROCEDURE ajout_recette(
  IN Quantite3 INT(11),
  IN durée3 INT(11))
 
-SET @exi = Exisant
+SET @exi = Exisant;
+SET @ninv = NomInventeur;
+SET @permis = NumeroPermis;
  
 INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
-VALUES (NomInventeur, NumeroPermis)
+VALUES (@ninv, @permis)
 WHERE @exi = '1';
 
 
@@ -39,12 +41,16 @@ WHERE @exi = '1';
 	WHERE Nom_Diluant = NomDiluant
 	);;
 
+	SET @nrec = NomRecette;
 	
 	INSERT INTO `recette` (Nom_recette) 
-	VALUES (NomRecette);
+	VALUES (@nrec);
+	
+	SET @prix = PrixPotion;
+	SET @Ptemp = TemperaturePotion
 	
 	INSERT INTO `Potion` (`Nom_Potion`, `Prix_Potion`,`ID_Diluant`,`Temperature_Potion`,`ID_Inventeur`)
-	VALUES (NomRecette, PrixPotion, @dil, TemperaturePotion, @inv );
+	VALUES (@nrec, PrixPotion, @dil, @Ptemp, @inv );
 	
 	SET @pot = (SELECT ID_Potion
 	FROM potion 
@@ -59,12 +65,11 @@ WHERE @exi = '1';
 	FROM Ingredient
 	WHERE Nom_Ingredient = NomIngredient1 );;	
 	
-	SET @quant = (SELECT Quantite
-	FROM contient
-	WHERE Quantite1 = Quantite);;
+	SET @quant = Quantite1;
+	SET @duree = durée1;
 	
 	INSERT INTO `contient`  (`Duree`, `ID_Ingredient`, `ID_Potion`, `ID_Unite`, `Quantite`)
-	VALUES (durée1, @ing, @pot, @unit, @quant);
+	VALUES (@duree, @ing, @pot, @unit, @quant);
 	
 	INSERT INTO `compose` (`ID_Ingredient`, `ID_Onguent`, `Quantite`, `ID_Unite`)
 	VALUES (@ing, @pot, @quant, @unit);
@@ -81,13 +86,12 @@ WHERE @exi = '1';
 	FROM unite
 	WHERE NomIngredient2 = Nom_Ingredient);;
 	
-	SET @quant = (SELECT Quantite
-	FROM contient
-	WHERE Quantite2 = Quantite);;
+	SET @quant = Quantite2;
+	SET @duree = durée2;
 
 	
 	INSERT INTO `contient`  (`Duree`, `ID_Ingredient`, `ID_Potion`, `ID_Unite`, `Quantite`)
-	VALUES (durée1, @ing, @pot, @unit, @quant);
+	VALUES (@duree, @ing, @pot, @unit, @quant);
 	INSERT INTO `compose` (`ID_Ingredient`, `ID_Onguent`, `Quantite`, `ID_Unite`)
 	VALUES (@ing, @pot, @quant, @unit);
 	
@@ -102,13 +106,12 @@ WHERE @exi = '1';
 	FROM Ingredient
 	WHERE NomIngredient3 = Nom_Ingredient);;
 	
-	SET @quant = (SELECT Quantite
-	FROM contient
-	WHERE Quantite3 = Quantite);;
+	SET @quant = Quantite3;
+	SET @duree = durée3;	
 	
 	
 	INSERT INTO `contient`  (`Duree`, `ID_Ingredient`, `ID_Potion`, `ID_Unite`, `Quantite`)
-	VALUES (durée1, @ing, @pot, @unit, @quant);
+	VALUES (@duree, @ing, @pot, @unit, @quant);
 	INSERT INTO `compose` (`ID_Ingredient`, `ID_Onguent`, `Quantite`, `ID_Unite`)
 	VALUES (@ing, @pot, @quant, @unit);
 	
