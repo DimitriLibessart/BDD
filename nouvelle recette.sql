@@ -23,7 +23,7 @@ CREATE PROCEDURE ajout_recette(
 
 INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
 VALUES (NomInventeur, NumeroPermis)
-WHERE Exisant=1;
+WHERE Exisant='1';
 
 
 	
