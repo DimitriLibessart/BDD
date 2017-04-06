@@ -19,6 +19,8 @@ CREATE PROCEDURE ajout_recette(
  IN NomUnite3 VARCHAR(255),
  IN Quantite3 INT(11),
  IN durée3 INT(11))
+ 
+ BEGIN
 
 SET @ninv = NomInventeur;
 SET @permis = NumeroPermis;
@@ -70,7 +72,7 @@ SET @pot = (SELECT ID_Potion
 	
 SET @unit = (SELECT ID_Unite
 	FROM unite
-	WHERE @unit1 = Nom_Unité);;
+	WHERE @unit1 = Nom_Unite);;
 
 SET @ing = (SELECT ID_Ingredient
 	FROM Ingredient
@@ -88,7 +90,7 @@ VALUES (@ing, @pot, @quant, @unit);
 	
 SET @unit = (SELECT ID_Ingredient
 	FROM Ingredient
-	WHERE @unit2 = Nom_Unité);;
+	WHERE @unit2 = Nom_Unite);;
 	
 SET @ing = (SELECT ID_Unite
 	FROM unite
@@ -105,7 +107,7 @@ VALUES (@ing, @pot, @quant, @unit);
 	
 SET @unit = (SELECT ID_Unite
 	FROM unite
-	WHERE @unit3 = Nom_Unité);;
+	WHERE @unit3 = Nom_Unite);;
 	
 SET @ing = (SELECT ID_Ingredient
 	FROM Ingredient
