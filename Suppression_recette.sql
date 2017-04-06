@@ -1,8 +1,26 @@
 DELIMITER |
 CREATE PROCEDURE Suppression_recette()
 BEGIN
-DELETE FROM potion INNER JOIN recette ON potion.ID_Potion = recette.ID_Potion
-WHERE recette.Statue = '0';
+
+SET @ID = (SELECT ID_Potion FROM  recette WHERE Statut = '0');
+
+
+DELETE FROM potion 
+WHERE ID_Potion = @ID;
+
+DELETE FROM recette
+WHERE ID_Potion = @ID;
+
+DELETE FROM contient 
+WHERE ID_Potion = @ID;
+
+DELETE FROM compose 
+WHERE ID_Potion = @ID;
+
+DELETE FROM onguent
+WHERE ID_Onguent = @ID;
+
+
 END |
 DELIMITER ;
 
