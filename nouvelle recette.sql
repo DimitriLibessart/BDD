@@ -20,10 +20,11 @@ CREATE PROCEDURE ajout_recette(
  IN Quantite3 INT(11),
  IN durée3 INT(11))
 
-
+SET @exi = Exisant
+ 
 INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
 VALUES (NomInventeur, NumeroPermis)
-WHERE Exisant='1';
+WHERE @exi = '1';
 
 
 	
