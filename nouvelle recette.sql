@@ -2,6 +2,7 @@ DELIMITER |
 CREATE PROCEDURE ajout_recette(
  IN NomInventeur VARCHAR(255),
  IN NumeroPermis INT(11),
+ IN Exisant BOOLEAN;
  IN NomRecette VARCHAR(255),
  IN NomDiluant VARCHAR(255),
  IN PrixPotion INT(11),
@@ -22,9 +23,7 @@ CREATE PROCEDURE ajout_recette(
 
 INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
 VALUES (NomInventeur, NumeroPermis)
-WHERE EXISTS (SELECT Nom_Inventeur
-FROM Inventeur
-WHERE NomInventeur  NOT IN ( SElECT Nom_Inventeur FROM inventeur);
+WHERE Exisant=1;
 
 
 	
