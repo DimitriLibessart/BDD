@@ -22,11 +22,10 @@ CREATE PROCEDURE ajout_recette(
 
 INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
 VALUES (NomInventeur, NumeroPermis)
-WHERE (SELECT Nom_Inventeur
+WHERE EXISTS (SELECT Nom_Inventeur
 FROM Inventeur
-WHERE NOM_Inventeur = NomInventeur) IS NULL;
+WHERE NomInventeur  NOT IN ( SElECT Nom_Inventeur FROM inventeur);
 
-DELETE inv1 FROM inventeur
 
 	
 	SET @inv = (SELECT ID_Inventeur
