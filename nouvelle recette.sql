@@ -57,7 +57,7 @@ WHERE @exi = '1';
 	
 	SET @ing = (SELECT ID_Ingredient
 	FROM Ingredient
-	WHERE NomIngredient1 = Nom_Ingredient);;	
+	WHERE Nom_Ingredient = NomIngredient1 );;	
 	
 	SET @quant = (SELECT Quantite
 	FROM contient
