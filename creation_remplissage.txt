@@ -363,6 +363,9 @@ CREATE TABLE recette(
 	ID_Potion int (11) NOT NULL,
 	PRIMARY KEY (ID_Recette)
 );
+INSERT INTO recette (`ID_Recette`,`Nom_Recette`,`Statue`,`ID_Potion`)
+VALUES (1,'Potion de détection faussée',0,12);
+
 
 #------------------------------------------------------------
 # Table: Inventeur
