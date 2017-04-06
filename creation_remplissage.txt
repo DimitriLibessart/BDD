@@ -358,7 +358,7 @@ INSERT INTO `Potion` (`ID_Potion`, `Nom_Potion`, `Prix_Potion`,`ID_Diluant`,`Tem
 
 CREATE TABLE recette(
 	ID_Recette int(11) Auto_increment NOT NULL,
-	Nom_Recette Varchar (25),
+	Nom_Recette Varchar (50),
 	Statue BOOLEAN DEFAULT false,
 	Etat BOOLEAN DEFAULT false,
 	ID_Potion int (11) NOT NULL,
