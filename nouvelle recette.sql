@@ -19,24 +19,14 @@ CREATE PROCEDURE ajout_recette(
  IN Quantite3 INT(11),
  IN durée3 INT(11))
 
-	SELECT SUM(Inventeur.Inventeur_Existant) sum
-	FROM(
-		SELECT Nom_Inventeur CASE 
-		WHEN Nom_Inventeur = NomInventeur THEN '1'
-		ELSE 'NULL'
-		END AS Inventeur_Existant);
-	;
-	SELECT IF(sum = 0,
 
-	(INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
-	VALUES (NomInventeur, NumeroPermis));  
-	
-	(UPDATE `Inventeur` SET Inventeur_Existant = 'NULL');
-	
-	,
-	(UPDATE `Inventeur` SET Inventeur_Existant = 'NULL');
-	
-	);
+INSERT INTO `Inventeur`  (`Nom_Inventeur`, `Numero_Permis_Inventeur`) 
+VALUES (NomInventeur, NumeroPermis)
+WHERE (SELECT Nom_Inventeur
+FROM Inventeur
+WHERE NOM_Inventeur = NomInventeur) IS NULL;
+
+DELETE inv1 FROM inventeur
 
 	
 	SET @inv = (SELECT ID_Inventeur
