@@ -4,10 +4,6 @@ BEGIN
 
 SET @ID = (SELECT ID_Potion FROM  recette WHERE Statut = '0');
 
-
-DELETE FROM potion 
-WHERE ID_Potion = @ID;
-
 DELETE FROM recette
 WHERE ID_Potion = @ID;
 
@@ -20,6 +16,8 @@ WHERE ID_Potion = @ID;
 DELETE FROM onguent
 WHERE ID_Onguent = @ID;
 
+DELETE FROM potion 
+WHERE ID_Potion = @ID;
 
 END |
 DELIMITER ;
