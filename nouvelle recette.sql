@@ -2,7 +2,7 @@ DELIMITER |
 CREATE PROCEDURE ajout_recette(
  IN NomInventeur VARCHAR(255),
  IN NumeroPermis INT(11),
- IN Exisant BOOLEAN;
+ IN Exisant BOOLEAN,
  IN NomRecette VARCHAR(255),
  IN NomDiluant VARCHAR(255),
  IN PrixPotion INT(11),
